@@ -5,10 +5,10 @@ using UnityEngine;
 public class ShaderManip : MonoBehaviour
 {
     Material m_Material;
-    private float fireMin = 0f;
-    private float fireMax = 1f;
-    private float airMin = 0f;
-    private float airMax = 1f;
+    [SerializeField] private float fireMin = 0f;
+    [SerializeField] private float fireMax = 1f;
+    [SerializeField] private float airMin = 0f;
+    [SerializeField] private float airMax = 1f;
     // Start is called before the first frame update
     void Start()
     {
