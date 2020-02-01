@@ -6,14 +6,15 @@ public class Door : MonoBehaviour
 {
     public bool isOpen = false;
     public void Toggle() {
+        Debug.Log("Fire! door");
         isOpen = !isOpen;
-        enabled = isOpen;
+        gameObject.SetActive(!isOpen);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        enabled = isOpen;
+        gameObject.SetActive(!isOpen);
     }
 
     // Update is called once per frame

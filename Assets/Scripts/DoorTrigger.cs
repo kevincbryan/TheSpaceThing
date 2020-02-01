@@ -11,7 +11,6 @@ public class DoorTrigger : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider collider) {
-        Debug.Log("HIT ME");
         if (collider.tag == "Player") {
             collider.gameObject.GetComponent<PlayerInteraction>().OnDoorEnter(this);
         }
