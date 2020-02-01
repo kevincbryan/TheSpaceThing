@@ -11,8 +11,15 @@ public class DoorTrigger : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider collider) {
-        if (collider.tag == "player") {
-            collider.gameObject.GetComponent<PlayerInteraction>();
+        Debug.Log("HIT ME");
+        if (collider.tag == "Player") {
+            collider.gameObject.GetComponent<PlayerInteraction>().OnDoorEnter(this);
+        }
+    }
+
+    public void OnTriggerExit(Collider collider) {
+        if (collider.tag == "Player") {
+            collider.gameObject.GetComponent<PlayerInteraction>().OnDoorExit(this);
         }
     }
 }
