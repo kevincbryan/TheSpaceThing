@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_A9D5553E:
-        m_Texture: {fileID: 2800000, guid: 2a9fcf0890ceeb24f96aabb24b98fa82, type: 3}
+        m_Texture: {fileID: 2800000, guid: b3f247b26e080ca468f1daa963c192ee, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_E7A706DA:
@@ -37,5 +37,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - OneForFire: 0
     - Vector1_3B1E30B9: 0
+    - Vector1_F527C874: 1
     m_Colors: []
