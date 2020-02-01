@@ -23,9 +23,9 @@ public class AsteroidController : MonoBehaviour
         rigidbody.AddForce(transform.forward * Random.Range(minFlySpeed, maxFlySpeed) * speedMultiplier);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Room"))
+        if (other.gameObject.CompareTag("Room"))
         {
             CollideWithRoom();
         }
