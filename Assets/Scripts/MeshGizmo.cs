@@ -2,30 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof (MeshFilter))]
 public class MeshGizmo : MonoBehaviour
 {
     public Color color = new Color(1, 0, 0, 0.5f);
-
-    private Mesh mesh;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        mesh = gameObject.GetComponent<MeshFilter>().sharedMesh;
-        
-        mesh.RecalculateNormals();
-        mesh.RecalculateBounds();
-        mesh.RecalculateTangents();
-    }
+    public bool isWireframe = false;
     
     void OnDrawGizmos() {
         Gizmos.color = color;
-        Gizmos.DrawMesh(
-            gameObject.GetComponent<MeshFilter>().mesh,
-            0,
-            gameObject.transform.position,
-            gameObject.transform.rotation,
-            gameObject.transform.localScale
-        );
+        if (isWireframe) {
+            Gizmos.DrawWireMesh(
+                gameObject.GetComponent<MeshFilter>().sharedMesh,
+                0,
+                gameObject.transform.position,
+                gameObject.transform.rotation,
+                gameObject.transform.localScale
+            );
+        } else {
+            Gizmos.DrawMesh(
+                gameObject.GetComponent<MeshFilter>().sharedMesh,
+                0,
+                gameObject.transform.position,
+                gameObject.transform.rotation,
+                gameObject.transform.localScale
+            );
+        }
     }
 }
