@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RM_4Door
+  m_Shader: {fileID: -6465566751694194690, guid: 04d4e5c0943bb1849bfed4835f64120b,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_38B509B:
+        m_Texture: {fileID: 2800000, guid: 3cf9dde75f328e34dabeeaa8a6959942, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_54331E1:
+        m_Texture: {fileID: 2800000, guid: 379528f1f345ebd43a1fa60f313f03ab, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_97B7EE67:
+        m_Texture: {fileID: 2800000, guid: 6abc61bae1c7044419c8badcf080d0df, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_A9D5553E:
+        m_Texture: {fileID: 2800000, guid: 8160ea2f878f4cf499a27e628ce758d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_E7A706DA:
+        m_Texture: {fileID: 2800000, guid: 25a7e79b56bd2c94ebe4f5d50fb831a7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - OneForAirless: 0
+    - OneForFire: 0
+    m_Colors: []
