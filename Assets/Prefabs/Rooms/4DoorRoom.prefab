@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!64 &1987739391246690886
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8144034394182650048}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -494709450566425888, guid: 0051de5a734aa324db221572456d88ac, type: 3}
 --- !u!1 &4489370778465117295
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +49,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oxygen: 100
+  m_Shader: {fileID: 157676656802505522}
+  oxygenRegen: 5
+  oxygenLossPerHole: 1
+  oxygenHandleRate: 1
+  fireSpreadRate: 5
+  fireSpawnRadius: 5
+  firePrefab: {fileID: 8320027010858356461, guid: 96fdd0fbf42f8f64a8ae02701f119f38,
+    type: 3}
   isOnFire: 0
+  halfAirlocks: []
 --- !u!114 &8952219216941829832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +72,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 2250357590792845128}
+--- !u!64 &1987739391246690886
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8144034394182650048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -494709450566425888, guid: 0051de5a734aa324db221572456d88ac, type: 3}
+--- !u!114 &157676656802505522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8144034394182650048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038177325bf77bb4eb3c0db7fbd353c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireMin: 0
+  fireMax: 1
+  airMin: 0
+  airMax: 1
 --- !u!1001 &154390362639389129
 PrefabInstance:
   m_ObjectHideFlags: 0
