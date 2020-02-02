@@ -203,6 +203,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8320027010858356461, guid: 96fdd0fbf42f8f64a8ae02701f119f38,
         type: 3}
+    - target: {fileID: 1331901299946791782, guid: 022249490c76c0d49a1c48aaa7b6999e,
+        type: 3}
+      propertyPath: isOnFire
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4652594519171684738, guid: 022249490c76c0d49a1c48aaa7b6999e,
         type: 3}
       propertyPath: m_Name

@@ -20,6 +20,7 @@ public class Room : MonoBehaviour
     [SerializeField] GameObject firePrefab;
 
     HashSet<LeakingAir> holes = new HashSet<LeakingAir>();
+    HashSet<Fire> fires = new HashSet<Fire>();
 
     public bool isOnFire = false;
 
@@ -39,11 +40,29 @@ public class Room : MonoBehaviour
         holes.Add(leakingAir);
     }
 
+    public void AddFire(Fire fire)
+    {
+        fires.Add(fire);
+    }
+
     public void FixLeak(LeakingAir leakingAir)
     {
         if (holes.Contains(leakingAir))
         {
             holes.Remove(leakingAir);
+        }
+    }
+
+    public void FixFire(Fire fire)
+    {
+        if (fires.Contains(fire))
+        {
+            fires.Remove(fire);
+        }
+
+        if (fires.Count <= 0)
+        {
+            isOnFire = false;
         }
     }
 
@@ -55,6 +74,14 @@ public class Room : MonoBehaviour
 
         if (this.fireTimer?.ElapsedMilliseconds < 1000) {
             return;
+        }
+
+        if (oxygen <= 0)
+        {
+            foreach (Fire fire in fires)
+            {
+                FixFire(fire);
+            }
         }
 
         SpawnFire();
@@ -99,6 +126,7 @@ public class Room : MonoBehaviour
         spawnLocation += transform.position;
 
         GameObject newFire = Instantiate(firePrefab, spawnLocation, Quaternion.identity, transform);
+        AddFire(newFire.GetComponent<Fire>());
     }
 
     // void OnDrawGizmos()

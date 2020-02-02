@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8320027010858356460}
   - component: {fileID: 2152179522152553533}
+  - component: {fileID: 6335091442589834066}
+  - component: {fileID: 2968023701834001877}
   m_Layer: 0
   m_Name: Fire particle
   m_TagString: Untagged
@@ -128,6 +130,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6335091442589834066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320027010858356461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff96ef10e436224c848b3a955a98973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &2968023701834001877
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320027010858356461}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8320027011795748415
 GameObject:
   m_ObjectHideFlags: 0
