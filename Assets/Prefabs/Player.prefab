@@ -148,6 +148,7 @@ MonoBehaviour:
   minimumLoss: 1
   maximumLoss: 3
   oxygenGainRate: 5
+  healthBar: {fileID: 2088047285540195282}
 --- !u!54 &4065959303708622983
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -397,6 +398,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1521301005188051298}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2088047285540195282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 713403573743532720, guid: 35b533e7c5e386d4499150868da49c10,
+    type: 3}
+  m_PrefabInstance: {fileID: 1521301005188051298}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4303409485534213894
 PrefabInstance:
   m_ObjectHideFlags: 0
