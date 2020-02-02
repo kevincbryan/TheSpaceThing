@@ -8,6 +8,7 @@ TagManager:
   - Room
   - Door
   - Machine
+  - Leak
   layers:
   - Default
   - TransparentFX
