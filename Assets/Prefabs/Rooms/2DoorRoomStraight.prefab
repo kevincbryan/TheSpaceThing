@@ -50,6 +50,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oxygen: 100
+  m_Shader: {fileID: 8081818126385771590}
+  oxygenRegen: 5
+  oxygenLossPerHole: 1
+  oxygenHandleRate: 1
+  fireSpreadRate: 2
+  isOnFire: 0
+  halfAirlocks: []
 --- !u!64 &592372892837493703
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64,7 +71,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -42364119807517067, guid: 1ec0052d9d830d448a44570d70baaa4e, type: 3}
-  isOnFire: 0
+--- !u!114 &8081818126385771590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483659987872516541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038177325bf77bb4eb3c0db7fbd353c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireMin: 0
+  fireMax: 1
+  airMin: 0
+  airMax: 1
 --- !u!114 &5795173007631928212
 MonoBehaviour:
   m_ObjectHideFlags: 0
