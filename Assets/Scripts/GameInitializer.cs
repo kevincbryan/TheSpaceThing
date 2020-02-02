@@ -17,7 +17,7 @@ public class GameInitializer : MonoBehaviour {
 	
 	public void GoToNextScene()
     {
-        SceneLoader.GoToNextScene();
+        //SceneLoader.GoToNextScene();
     }
 
     public void QuitGame()
