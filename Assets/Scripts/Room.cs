@@ -15,6 +15,7 @@ public class Room : MonoBehaviour
     [SerializeField] float oxygenLossForFire = 5f;
     [SerializeField] float oxygenHandleRate = 1f;
     [SerializeField] float fireSpreadRate = 2f;
+    [SerializeField] float maxOxygenThiefRate = 20f;
 
     [SerializeField] float fireSpawnRadius = 5f;
     [SerializeField] GameObject firePrefab;
@@ -22,6 +23,7 @@ public class Room : MonoBehaviour
     HashSet<LeakingAir> holes = new HashSet<LeakingAir>();
 
     public bool isOnFire = false;
+    public bool wasThiefed = false;
 
     public Stopwatch fireTimer;
 
@@ -48,6 +50,7 @@ public class Room : MonoBehaviour
     }
 
     void SpreadFire() {
+        return;
         if (!this.isOnFire) {
             m_Shader.Fire(0f);
             return;
@@ -73,16 +76,43 @@ public class Room : MonoBehaviour
 
     void HandleOxygenLevels()
     {
-        var shouldRegen = holes.Count <= 0 && !this.isOnFire;
+        // regenerate oxygen
+        var shouldRegen =
+                holes.Count <= 0
+                && !this.isOnFire;
+
         if (shouldRegen)
         {
-            oxygen = Mathf.Clamp(oxygen + oxygenRegen, 0, maxOxygen);
-            m_Shader.Air(1f - (oxygen / 100f));
-            return;
+            if (!this.wasThiefed)
+            {
+                oxygen = Mathf.Clamp(oxygen + oxygenRegen, 0, maxOxygen);
+                m_Shader.Air(1f - (oxygen / 100f));
+                return;
+            } else {
+                this.wasThiefed = false;
+            }
         }
 
+        // steal from nearby rooms
+        var nearbyOpenRooms = this.halfAirlocks.Where(ha => ha.isOpen && ha.pairedAirlock.isOpen);
+        var nearbyRoomsWithAir = nearbyOpenRooms.Select(ha => ha.pairedAirlock.room).Where(r => r.oxygen > 0);
+        var nearbyRoomsWithMoreAir = nearbyRoomsWithAir.Where(r => r.oxygen > this.oxygen).OrderByDescending(r => r.oxygen);
+        foreach (var otherRoom in nearbyRoomsWithMoreAir) {
+            var oxygenDifference = otherRoom.oxygen - this.oxygen;
+            var oxygenEqualizationDifference = oxygenDifference / 2;
+            var targetThiefRate = Mathf.Clamp(maxOxygenThiefRate, 0, oxygenEqualizationDifference);
+            if (targetThiefRate > 0) {
+                oxygen = Mathf.Clamp(oxygen + targetThiefRate, 0, maxOxygen);
+                otherRoom.oxygen = Mathf.Clamp(otherRoom.oxygen - targetThiefRate, 0, otherRoom.maxOxygen);
+                otherRoom.wasThiefed = true;
+            } else {
+                break;
+            }
+        }
+
+        // lose oxygen
         var oxygenLossDueToHoles = oxygenLossPerHole * holes.Count;
-        var oxygenLossDueToFire = oxygenLossForFire;
+        var oxygenLossDueToFire = this.isOnFire ? oxygenLossForFire : 0;
         var oxygenLoss = oxygenLossDueToHoles + oxygenLossDueToFire;
         oxygen = Mathf.Clamp(oxygen -  oxygenLoss, 0, maxOxygen);
         m_Shader.Air(1f - (oxygen / 100f));
