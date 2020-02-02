@@ -12,6 +12,7 @@ public class Room : MonoBehaviour
     public ShaderManip m_Shader;
     [SerializeField] float oxygenRegen = 5f;
     [SerializeField] float oxygenLossPerHole = 1f;
+    [SerializeField] float oxygenLossForFire = 5f;
     [SerializeField] float oxygenHandleRate = 1f;
     [SerializeField] float fireSpreadRate = 2f;
 
@@ -72,17 +73,19 @@ public class Room : MonoBehaviour
 
     void HandleOxygenLevels()
     {
-        if (holes.Count <= 0)
+        var shouldRegen = holes.Count <= 0 && !this.isOnFire;
+        if (shouldRegen)
         {
-            
             oxygen = Mathf.Clamp(oxygen + oxygenRegen, 0, maxOxygen);
             m_Shader.Air(1f - (oxygen / 100f));
+            return;
         }
-        else
-        {
-            oxygen = Mathf.Clamp(oxygen - (oxygenLossPerHole * holes.Count) , 0, maxOxygen);
-            m_Shader.Air(1f - (oxygen / 100f));
-        }
+
+        var oxygenLossDueToHoles = oxygenLossPerHole * holes.Count;
+        var oxygenLossDueToFire = oxygenLossForFire;
+        var oxygenLoss = oxygenLossDueToHoles + oxygenLossDueToFire;
+        oxygen = Mathf.Clamp(oxygen -  oxygenLoss, 0, maxOxygen);
+        m_Shader.Air(1f - (oxygen / 100f));
     }
 
     public void SpawnFire()
