@@ -2,14 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrackPlayerOxygen : MonoBehaviour
+public class TrackRoomOxygen : MonoBehaviour
 {
-    public PlayerInteraction player;
+    private Room room;
+
+    void Start()
+    {
+        room = GetComponentInParent<Room>();
+        if (room == null) {
+            Debug.LogError("Room Status Not In Room");
+        }
+    }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        var oxygenLevel = player.oxygen / 100f;
+        var oxygenLevel = room.oxygen / 100f;
         transform.localScale = new Vector3(transform.localScale.x, oxygenLevel, transform.localScale.z);
         transform.localPosition = new Vector3(transform.localPosition.x, -1f + oxygenLevel, transform.localPosition.z);
     }
