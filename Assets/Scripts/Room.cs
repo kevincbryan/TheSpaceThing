@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -9,17 +11,21 @@ public class Room : MonoBehaviour
     [SerializeField] float oxygenRegen = 5f;
     [SerializeField] float oxygenLossPerHole = 1f;
     [SerializeField] float oxygenHandleRate = 1f;
+    [SerializeField] float fireSpreadRate = 2f;
 
     HashSet<LeakingAir> holes = new HashSet<LeakingAir>();
 
     public bool isOnFire = false;
 
-    public HashSet<HalfAirlock> halfAirlocks = new HashSet<HalfAirlock>();
+    public Stopwatch fireTimer;
+
+    public List<HalfAirlock> halfAirlocks = new List<HalfAirlock>();
 
     private void Start()
     {
         maxOxygen = oxygen;
-        InvokeRepeating("HandleOxygenLevels", 0f, oxygenHandleRate);
+        InvokeRepeating(nameof(HandleOxygenLevels), 0f, oxygenHandleRate);
+        InvokeRepeating(nameof(SpreadFire), 0f, fireSpreadRate);
     }
 
     public void AddLeak(LeakingAir leakingAir)
@@ -32,6 +38,22 @@ public class Room : MonoBehaviour
         if (holes.Contains(leakingAir))
         {
             holes.Remove(leakingAir);
+        }
+    }
+
+    void SpreadFire() {
+        if (!this.isOnFire) {
+            return;
+        }
+
+        if (this.fireTimer?.ElapsedMilliseconds < 1000) {
+            return;
+        }
+        
+        var target = this.halfAirlocks.Select(al => al.pairedAirlock.room).Where(room => !room.isOnFire).FirstOrDefault();
+        if (target != null) {
+            target.isOnFire = true;
+            target.fireTimer = Stopwatch.StartNew();
         }
     }
 
@@ -50,18 +72,23 @@ public class Room : MonoBehaviour
 
     void OnDrawGizmos()
     {
+        if (this.isOnFire) {
+            Gizmos.color = Color.red;
+        }
+
         var above = new Vector3(0, 20, 0);
         Gizmos.DrawSphere(transform.position + above, 5);
 
         foreach (var halfAirlock in halfAirlocks) {
             Gizmos.DrawLine(transform.position + above, halfAirlock.gameObject.transform.position + above);
         }
+
         Gizmos.color = Color.white;
     }
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         var above = new Vector3(0, 20, 0);
         Gizmos.DrawSphere(transform.position + above, 6f);
 
