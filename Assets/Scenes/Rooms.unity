@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391db064e032b29449cce9df80d6a3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 430503719}
 --- !u!1 &411375466
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 430503714}
   - component: {fileID: 430503713}
   - component: {fileID: 430503719}
+  - component: {fileID: 430503720}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -584,6 +585,22 @@ MonoBehaviour:
   minimumLoss: 1
   maximumLoss: 3
   oxygenGainRate: 5
+--- !u!54 &430503720
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430503712}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!1001 &512542390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -650,6 +667,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpaceStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016053466732113312, guid: b5b0795854baef04b87a8945885d96e9,
+        type: 3}
+      propertyPath: oxygen
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5b0795854baef04b87a8945885d96e9, type: 3}
