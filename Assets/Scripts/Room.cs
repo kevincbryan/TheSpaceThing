@@ -14,7 +14,7 @@ public class Room : MonoBehaviour
     [SerializeField] float oxygenLossPerHole = 1f;
     [SerializeField] float oxygenLossForFire = 5f;
     [SerializeField] float oxygenHandleRate = 1f;
-    [SerializeField] float fireSpreadRate = 2f;
+    [SerializeField] float fireSpreadRate = 7f;
     [SerializeField] float maxOxygenThiefRate = 20f;
 
     [SerializeField] float fireSpawnRadius = 5f;
