@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameInitializer : MonoBehaviour {
 
@@ -12,12 +13,17 @@ public class GameInitializer : MonoBehaviour {
         {
             GameObject.Instantiate(musicManager);
         }
-        Invoke("GoToNextScene", titleTimeout);
+        //Invoke("GoToNextScene", titleTimeout);
 	}
 	
 	public void GoToNextScene()
     {
-        //SceneLoader.GoToNextScene();
+        SceneLoader.GoToNextScene();
+    }
+
+    public void GoToSceneNumber(int scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 
     public void QuitGame()
