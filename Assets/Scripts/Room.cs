@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class Room : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class Room : MonoBehaviour
     [SerializeField] float oxygenLossPerHole = 1f;
     [SerializeField] float oxygenHandleRate = 1f;
     [SerializeField] float fireSpreadRate = 2f;
+
+    [SerializeField] float fireSpawnRadius = 5f;
+    [SerializeField] GameObject firePrefab;
 
     HashSet<LeakingAir> holes = new HashSet<LeakingAir>();
 
@@ -51,6 +55,8 @@ public class Room : MonoBehaviour
         if (this.fireTimer?.ElapsedMilliseconds < 1000) {
             return;
         }
+
+        SpawnFire();
         
         var target = this.halfAirlocks
             .Where(al => al.isOpen && al.pairedAirlock.isOpen)
@@ -77,6 +83,19 @@ public class Room : MonoBehaviour
             oxygen = Mathf.Clamp(oxygen - (oxygenLossPerHole * holes.Count) , 0, maxOxygen);
             m_Shader.Air(1f - (oxygen / 100f));
         }
+    }
+
+    public void SpawnFire()
+    {
+        if (firePrefab == null)
+        {
+            Debug.LogError("No fire prefab located on " + gameObject.name);
+            return;
+        }
+        Vector3 spawnLocation = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)) * fireSpawnRadius;
+        spawnLocation += transform.position;
+
+        GameObject newFire = Instantiate(firePrefab, spawnLocation, Quaternion.identity, transform);
     }
 
     // void OnDrawGizmos()

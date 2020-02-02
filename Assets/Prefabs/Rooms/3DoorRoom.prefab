@@ -68,7 +68,10 @@ MonoBehaviour:
   oxygenRegen: 5
   oxygenLossPerHole: 1
   oxygenHandleRate: 1
-  fireSpreadRate: 2
+  fireSpreadRate: 5
+  fireSpawnRadius: 5
+  firePrefab: {fileID: 8320027010858356461, guid: 96fdd0fbf42f8f64a8ae02701f119f38,
+    type: 3}
   isOnFire: 0
   halfAirlocks: []
 --- !u!64 &2334865300753737601
