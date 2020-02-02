@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour {
+public class MusicManager : MonoBehaviour {
     
     public AudioSource BGM;
     private AudioSource BGMInstance;
 
 	// Use this for initialization
 	void Start () {
-        if (FindObjectsOfType<AudioManager>().Length > 1)
+        if (FindObjectsOfType<MusicManager>().Length > 1)
         {
             Destroy(gameObject);
             return;
