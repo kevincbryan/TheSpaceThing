@@ -14,7 +14,7 @@ public class PlayerInteraction : MonoBehaviour
     public float oxygenGainRate = 5f;
     public Image healthBar;
 
-    private List<DoorTrigger> nearbyDoors = new List<DoorTrigger>();
+    private HashSet<DoorTrigger> nearbyDoors = new HashSet<DoorTrigger>();
 
     private HashSet<RoomTrigger> inRooms = new HashSet<RoomTrigger>();
 

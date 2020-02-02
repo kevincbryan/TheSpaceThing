@@ -74,34 +74,34 @@ public class Room : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        if (this.isOnFire) {
-            Gizmos.color = Color.red;
-        }
+    // void OnDrawGizmos()
+    // {
+    //     if (this.isOnFire) {
+    //         Gizmos.color = Color.red;
+    //     }
 
-        var above = new Vector3(0, 20, 0);
-        Gizmos.DrawSphere(transform.position + above, 5);
+    //     var above = new Vector3(0, 20, 0);
+    //     Gizmos.DrawSphere(transform.position + above, 5);
 
-        foreach (var halfAirlock in halfAirlocks) {
-            Gizmos.DrawLine(transform.position + above, halfAirlock.gameObject.transform.position + above);
-        }
+    //     foreach (var halfAirlock in halfAirlocks) {
+    //         Gizmos.DrawLine(transform.position + above, halfAirlock.gameObject.transform.position + above);
+    //     }
 
-        Gizmos.color = Color.white;
-    }
+    //     Gizmos.color = Color.white;
+    // }
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.blue;
-        var above = new Vector3(0, 20, 0);
-        Gizmos.DrawSphere(transform.position + above, 6f);
+    // void OnDrawGizmosSelected()
+    // {
+    //     Gizmos.color = Color.blue;
+    //     var above = new Vector3(0, 20, 0);
+    //     Gizmos.DrawSphere(transform.position + above, 6f);
 
-        foreach (var halfAirlock in halfAirlocks) {
-            Gizmos.DrawSphere(halfAirlock.gameObject.transform.position + above, 3f);
-        }
+    //     foreach (var halfAirlock in halfAirlocks) {
+    //         Gizmos.DrawSphere(halfAirlock.gameObject.transform.position + above, 3f);
+    //     }
 
-        foreach (var halfAirlock in halfAirlocks) {
-            Gizmos.DrawLine(transform.position + above, halfAirlock.gameObject.transform.position + above);
-        }
-    }
+    //     foreach (var halfAirlock in halfAirlocks) {
+    //         Gizmos.DrawLine(transform.position + above, halfAirlock.gameObject.transform.position + above);
+    //     }
+    // }
 }

@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour
 {
-    public Door door;
+    private HalfAirlock airlock;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        airlock = GetComponentInParent<HalfAirlock>();
+        if (airlock == null) {
+            Debug.LogError("HalfAirlock Behavior Not In HalfAirlock");
+        }
+    }
 
     public void Toggle() {
-        door.Toggle();
+        airlock.Toggle();
     }
 
     public void OnTriggerEnter(Collider collider) {
