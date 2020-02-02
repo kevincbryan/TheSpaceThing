@@ -8,13 +8,13 @@ public class RoomTrigger : MonoBehaviour
 
     public void OnTriggerEnter(Collider collider) {
         if (collider.tag == "Player") {
-            collider.gameObject.GetComponent<PlayerInteraction>().OnRoomEnter(this);
+            collider.gameObject.GetComponent<PlayerInteraction>()?.OnRoomEnter(this);
         }
     }
 
     public void OnTriggerExit(Collider collider) {
         if (collider.tag == "Player") {
-            collider.gameObject.GetComponent<PlayerInteraction>().OnRoomExit(this);
+            collider.gameObject.GetComponent<PlayerInteraction>()?.OnRoomExit(this);
         }
     }
 }

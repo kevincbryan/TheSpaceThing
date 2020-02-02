@@ -8,6 +8,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
 
     CharacterController characterController;
+
+    PlayerInputActions inputActions;
+
+    Vector2 movementInput;
+
+    void Awake() {
+        inputActions = new PlayerInputActions();
+        movementInput = new Vector2();
+        inputActions.PlayerControls.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -21,10 +31,18 @@ public class PlayerMovement : MonoBehaviour
         MoveByPlayerInput();
     }
 
+    void OnEnable() {
+        inputActions.Enable();
+    }
+
+    void OnDisable() {
+        inputActions.Disable();
+    }
+
     private void MoveByPlayerInput()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = movementInput.x;
+        float verticalInput = movementInput.y;
 
         transform.LookAt(transform.position + new Vector3(horizontalInput, 0, verticalInput));
         var forward = new Vector3(horizontalInput, 0, verticalInput).normalized;
