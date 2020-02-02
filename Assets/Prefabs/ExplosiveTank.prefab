@@ -24,13 +24,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3239985811601971435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.060765773, y: 3.858776, z: 1.8972895}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9154502577252160744}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2795021089155968441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5282733699657737979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6834c62554fb0f64ba16861fd4920016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 8320027010858356461, guid: 96fdd0fbf42f8f64a8ae02701f119f38,
+    type: 3}
+--- !u!64 &2970460926639034730
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5282733699657737979}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3497659461144814430, guid: ba87bd5e66015ff4c80b5061bcc43e67, type: 3}
 --- !u!1001 &4211401499849981938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41,32 +69,32 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ba87bd5e66015ff4c80b5061bcc43e67,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.082010806
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ba87bd5e66015ff4c80b5061bcc43e67,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.6526725
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ba87bd5e66015ff4c80b5061bcc43e67,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.98736715
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ba87bd5e66015ff4c80b5061bcc43e67,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ba87bd5e66015ff4c80b5061bcc43e67,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ba87bd5e66015ff4c80b5061bcc43e67,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ba87bd5e66015ff4c80b5061bcc43e67,
         type: 3}
@@ -118,8 +146,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosive Tank
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ba87bd5e66015ff4c80b5061bcc43e67,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ba87bd5e66015ff4c80b5061bcc43e67,
+        type: 3}
+      propertyPath: m_TagString
+      value: Explosive
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba87bd5e66015ff4c80b5061bcc43e67, type: 3}
+--- !u!1 &5282733699657737979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: ba87bd5e66015ff4c80b5061bcc43e67,
+    type: 3}
+  m_PrefabInstance: {fileID: 4211401499849981938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9154502577252160744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ba87bd5e66015ff4c80b5061bcc43e67,
