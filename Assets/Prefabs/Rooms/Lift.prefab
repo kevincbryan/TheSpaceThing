@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &4691485762718315504
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943176428057304513}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5107355360153893096, guid: f640be5916f04b54ca5c0c90da57468d, type: 3}
 --- !u!1 &4875736444327216979
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +23,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4939761317531250530}
+  - component: {fileID: 958762384476967799}
   m_Layer: 9
   m_Name: Lift
   m_TagString: Room
@@ -31,20 +46,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!64 &4691485762718315504
-MeshCollider:
+--- !u!111 &958762384476967799
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1943176428057304513}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 4875736444327216979}
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5107355360153893096, guid: f640be5916f04b54ca5c0c90da57468d, type: 3}
+  m_Animation: {fileID: 7400000, guid: 8a4319a28187ada478d7d1d54f0d74b1, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8a4319a28187ada478d7d1d54f0d74b1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &7626390479420769480
 PrefabInstance:
   m_ObjectHideFlags: 0
