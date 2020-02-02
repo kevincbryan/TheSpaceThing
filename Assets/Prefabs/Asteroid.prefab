@@ -109,6 +109,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minFlySpeed: 10
   maxFlySpeed: 50
+  audioClips: []
+  airLeakPrefab: {fileID: 6502822658563118241, guid: 4e4d90ee18a6ec04183293addcf1bda9,
+    type: 3}
 --- !u!54 &3327885618627008551
 Rigidbody:
   m_ObjectHideFlags: 0

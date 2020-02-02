@@ -12,6 +12,8 @@ public class AsteroidController : MonoBehaviour
     [SerializeField] float maxFlySpeed = 50f;
     [SerializeField] AudioClip[] audioClips;
 
+    [SerializeField] GameObject airLeakPrefab;
+
     float speedMultiplier = 10000f;
 
     // Start is called before the first frame update
@@ -27,12 +29,13 @@ public class AsteroidController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Room"))
         {
-            CollideWithRoom();
+            CollideWithRoom(other.gameObject.GetComponentInParent<Room>());
         }
     }
 
-    private void CollideWithRoom()
+    private void CollideWithRoom(Room room)
     {
+        CreateAirLeak(room);
         ImpactParticle();
         ImpactSound();
         Destroy(this.gameObject);
@@ -46,6 +49,12 @@ public class AsteroidController : MonoBehaviour
             AudioSource.PlayClipAtPoint(audioClips[audioClipToPlay], transform.position);
         }
         
+    }
+
+    private void CreateAirLeak(Room room)
+    {
+        GameObject newLeak = Instantiate(airLeakPrefab, transform.position, Quaternion.identity, room.transform);
+        room.AddLeak(newLeak.GetComponent<LeakingAir>());
     }
 
     private void ImpactParticle()
