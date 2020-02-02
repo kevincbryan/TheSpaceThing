@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof (Rigidbody))]
 public class AsteroidController : MonoBehaviour
 {
-    Rigidbody rigidbody;
+    new Rigidbody rigidbody;
     [SerializeField] float minFlySpeed = 10f;
     [SerializeField] float maxFlySpeed = 50f;
     [SerializeField] AudioClip[] audioClips;
