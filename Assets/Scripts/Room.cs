@@ -8,6 +8,7 @@ public class Room : MonoBehaviour
 {
     public float oxygen = 100f;
     float maxOxygen = 100f;
+    public ShaderManip m_Shader;
     [SerializeField] float oxygenRegen = 5f;
     [SerializeField] float oxygenLossPerHole = 1f;
     [SerializeField] float oxygenHandleRate = 1f;
@@ -43,6 +44,7 @@ public class Room : MonoBehaviour
 
     void SpreadFire() {
         if (!this.isOnFire) {
+            m_Shader.Fire(0f);
             return;
         }
 
@@ -58,6 +60,7 @@ public class Room : MonoBehaviour
         if (target != null) {
             target.isOnFire = true;
             target.fireTimer = Stopwatch.StartNew();
+            m_Shader.Fire(1f);
         }
     }
 
@@ -67,10 +70,12 @@ public class Room : MonoBehaviour
         {
             
             oxygen = Mathf.Clamp(oxygen + oxygenRegen, 0, maxOxygen);
+            m_Shader.Air(1f - (oxygen / 100f));
         }
         else
         {
             oxygen = Mathf.Clamp(oxygen - (oxygenLossPerHole * holes.Count) , 0, maxOxygen);
+            m_Shader.Air(1f - (oxygen / 100f));
         }
     }
 

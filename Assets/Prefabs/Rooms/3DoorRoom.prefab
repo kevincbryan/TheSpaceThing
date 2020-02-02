@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oxygen: 100
+  m_Shader: {fileID: 830816729364321318}
   oxygenRegen: 5
   oxygenLossPerHole: 1
   oxygenHandleRate: 1
