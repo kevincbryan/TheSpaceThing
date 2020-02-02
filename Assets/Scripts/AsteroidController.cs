@@ -14,6 +14,8 @@ public class AsteroidController : MonoBehaviour
 
     [SerializeField] GameObject airLeakPrefab;
 
+    [SerializeField] float explosionRadius = 5f;
+
     float speedMultiplier = 10000f;
 
     // Start is called before the first frame update
@@ -36,9 +38,25 @@ public class AsteroidController : MonoBehaviour
     private void CollideWithRoom(Room room)
     {
         CreateAirLeak(room);
+        CreateExplosion(room);
         ImpactParticle();
         ImpactSound();
         Destroy(this.gameObject);
+    }
+
+    private void CreateExplosion(Room room)
+    {
+        int layerMask = 1 << LayerMask.NameToLayer("Environment");
+        Collider[] explosives = Physics.OverlapSphere(transform.position, explosionRadius, layerMask);
+
+        foreach (Collider explosive in explosives)
+        {
+            if (explosive.CompareTag("Explosive"))
+            {
+                explosive.gameObject.GetComponent<ExplosiveTank>().Explode(room);
+            }
+            
+        }
     }
 
     private void ImpactSound()
