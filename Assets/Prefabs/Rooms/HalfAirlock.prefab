@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 0.5}
-  isWireframe: 0
+  isWireframe: 1
 --- !u!114 &2973080859816013981
 MonoBehaviour:
   m_ObjectHideFlags: 0

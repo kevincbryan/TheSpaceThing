@@ -11,6 +11,10 @@ public class HalfAirlock : MonoBehaviour
     public Room room;
 
     public Door door;
+
+    public void Start() {
+        this.SetOpen(this.isOpen);
+    }
     
     public void Toggle() {
         Debug.Log("am door");
