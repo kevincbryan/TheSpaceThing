@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerInteraction : MonoBehaviour
     public float maximumLoss = 33f;
 
     public float oxygenGainRate = 5f;
+    public Image healthBar;
 
     private List<DoorTrigger> nearbyDoors = new List<DoorTrigger>();
 
@@ -38,6 +40,7 @@ public class PlayerInteraction : MonoBehaviour
             var percentToward0From50 = 1 - highestOxygen;
             var oxygenLossRate = Mathf.Lerp(minimumLoss, maximumLoss, percentToward0From50);
             oxygen -= oxygenLossRate * Time.deltaTime;
+            
         }
 
         if (highestOxygen >= 75) {
@@ -50,6 +53,7 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         oxygen = Mathf.Clamp(oxygen, 0, 100);
+        healthBar.fillAmount = oxygen / 100f;
     }
 
     public void HandleDoorToggle() {
