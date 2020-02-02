@@ -69,7 +69,7 @@ public class Room : MonoBehaviour
     }
 
     void SpreadFire() {
-        return;
+        
         if (!this.isOnFire) {
             m_Shader.Fire(0f);
             return;
