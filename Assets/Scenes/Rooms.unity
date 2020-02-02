@@ -271,7 +271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rotateSpeed: 50
 --- !u!143 &430503714
 CharacterController:
   m_ObjectHideFlags: 0
@@ -378,6 +377,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d327ef8683d8d84aa7b073528a17a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oxygen: 100
+  minimumLoss: 1
+  maximumLoss: 3
+  oxygenGainRate: 5
 --- !u!1001 &552531896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -445,13 +448,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossRoom
       objectReference: {fileID: 0}
-    - target: {fileID: 8989830760658895576, guid: e397cccc5004a894b972ec3629207db8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -3657125550887342685, guid: e397cccc5004a894b972ec3629207db8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e397cccc5004a894b972ec3629207db8, type: 3}
 --- !u!1 &812109775
 GameObject:
@@ -705,11 +702,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossRoom (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 8989830760658895576, guid: e397cccc5004a894b972ec3629207db8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -3657125550887342685, guid: e397cccc5004a894b972ec3629207db8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e397cccc5004a894b972ec3629207db8, type: 3}

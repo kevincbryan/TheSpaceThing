@@ -1296,7 +1296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3956671859171523875}
-  - component: {fileID: -3657125550887342685}
+  - component: {fileID: 9166121921124431359}
   m_Layer: 0
   m_Name: CrossRoom
   m_TagString: Untagged
@@ -1326,7 +1326,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3657125550887342685
+--- !u!114 &9166121921124431359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1335,11 +1335,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3956671859171523876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 503fca56512fcdb4ab100d944845b1e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8870681b5f69d1c4fb562519f6eff800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 0.5}
-  isWireframe: 0
+  oxygen: 100
 --- !u!1 &3956671859277428810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,6 +2487,7 @@ GameObject:
   - component: {fileID: 2403461744164086642}
   - component: {fileID: 8057597196757205192}
   - component: {fileID: 5997382000073127526}
+  - component: {fileID: 2028259843585413873}
   m_Layer: 0
   m_Name: RoomTrigger
   m_TagString: Untagged
@@ -2583,6 +2583,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 0.5}
   isWireframe: 0
+--- !u!114 &2028259843585413873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4923046334214469644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa6ace572eba0941ac3c38f31b663d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 9166121921124431359}
 --- !u!1 &9095115594331010042
 GameObject:
   m_ObjectHideFlags: 0

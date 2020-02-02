@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GameInitializer : MonoBehaviour {
 
-    public GameObject audioManager;
-    //public float titleTimeout = 10.0f;
+    public GameObject musicManager;
+    public float titleTimeout = 10.0f;
 
     void Awake () {
-        if (GameObject.FindObjectOfType<AudioManager>() == null)
+        if (GameObject.FindObjectOfType<MusicManager>() == null)
         {
-            GameObject.Instantiate(audioManager);
+            GameObject.Instantiate(musicManager);
         }
-        //Invoke("GoToNextScene", titleTimeout);
+        Invoke("GoToNextScene", titleTimeout);
 	}
 	
 	public void GoToNextScene()
