@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class LeakingAir : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    Room room;
+
+    private void Start()
     {
-        
+        room = GetComponentInParent<Room>();
+        if (room == null)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerStay(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Repair();
+            }
+        }
+    }
+
+    public void Repair()
+    {
+        room.FixLeak(this);
+
+        Destroy(gameObject);
     }
 }
