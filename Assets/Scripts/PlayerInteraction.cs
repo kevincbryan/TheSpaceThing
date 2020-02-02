@@ -14,7 +14,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private List<DoorTrigger> nearbyDoors = new List<DoorTrigger>();
 
-    private List<RoomTrigger> inRooms = new List<RoomTrigger>();
+    private HashSet<RoomTrigger> inRooms = new HashSet<RoomTrigger>();
 
     public void Update() {
         HandleOxygen();
@@ -28,7 +28,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void HandleOxygen() {
         if (!inRooms.Any()) {
-            Debug.LogError("Not in any rooms. Map needs repair.");
+            Debug.Log("Not in any rooms. Map needs repair.");
             return;
         }
 
