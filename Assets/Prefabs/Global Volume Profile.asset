@@ -56,11 +56,11 @@ MonoBehaviour:
     m_Value: 1
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 31.01
+    m_Value: 98.3
     min: 0
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 414.5
+    m_Value: 87.9
     min: 0
   gaussianMaxRadius:
     m_OverrideState: 1
@@ -228,13 +228,13 @@ MonoBehaviour:
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.8715809, z: 0.98750573, w: 0}
+    m_Value: {x: 0.8768068, y: 0.879388, z: 1, w: 0.18324609}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9761531, z: 0.98173165, w: 0}
+    m_Value: {x: 0.92515254, y: 0.96258754, z: 1, w: 0}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 0.95024663, y: 0.9548386, z: 1, w: 0}
+    m_Value: {x: 0.7649424, y: 0.8347356, z: 1, w: 0}
   shadowsStart:
     m_OverrideState: 1
     m_Value: 0
