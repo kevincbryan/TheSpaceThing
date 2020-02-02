@@ -7,4 +7,6 @@ public class Room : MonoBehaviour
     public float oxygen = 100f;
 
     public bool isOnFire = false;
+
+    public HashSet<HalfAirlock> halfAirlocks = new HashSet<HalfAirlock>();
 }
