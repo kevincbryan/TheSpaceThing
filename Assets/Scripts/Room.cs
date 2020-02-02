@@ -50,7 +50,11 @@ public class Room : MonoBehaviour
             return;
         }
         
-        var target = this.halfAirlocks.Select(al => al.pairedAirlock.room).Where(room => !room.isOnFire).FirstOrDefault();
+        var target = this.halfAirlocks
+            .Where(al => al.isOpen && al.pairedAirlock.isOpen)
+            .Select(al => al.pairedAirlock.room)
+            .Where(room => !room.isOnFire).FirstOrDefault();
+
         if (target != null) {
             target.isOnFire = true;
             target.fireTimer = Stopwatch.StartNew();
