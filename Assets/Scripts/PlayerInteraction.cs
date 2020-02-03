@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -25,6 +27,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void PlayerSuffocate() {
         Debug.Log("Player Suffocated");
+        Invoke("GameOver", 3f);
         Destroy(this.gameObject);
     }
 
@@ -54,6 +57,12 @@ public class PlayerInteraction : MonoBehaviour
 
         oxygen = Mathf.Clamp(oxygen, 0, 100);
         healthBar.fillAmount = oxygen / 100f;
+    }
+
+    public void GameOver ()
+    {
+        SceneLoader.GoToNextScene();
+
     }
 
     public void HandleDoorToggle() {
