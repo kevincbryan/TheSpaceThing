@@ -395,5 +395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosionParticle
       objectReference: {fileID: 0}
+    - target: {fileID: 8151310485722361507, guid: 17257c91f53a42d47a8130266b69dcfc,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17257c91f53a42d47a8130266b69dcfc, type: 3}
