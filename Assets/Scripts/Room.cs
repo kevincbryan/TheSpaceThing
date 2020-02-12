@@ -60,6 +60,7 @@ public class Room : MonoBehaviour
         if (fires.Contains(fire))
         {
             fires.Remove(fire);
+            Destroy(fire.gameObject);
         }
 
         if (fires.Count <= 0)
@@ -79,12 +80,14 @@ public class Room : MonoBehaviour
             return;
         }
 
-        if (oxygen <= 0)
+        if (oxygen <= 0f)
         {
-            foreach (Fire fire in fires)
+            SnuffFire();
+            /*foreach (Fire fire in fires)
             {
+                
                 FixFire(fire);
-            }
+            }*/
         }
 
         SpawnFire();
@@ -98,6 +101,23 @@ public class Room : MonoBehaviour
             target.isOnFire = true;
             target.fireTimer = Stopwatch.StartNew();
             m_Shader.Fire(1f);
+        }
+    }
+
+    void LateUpdate()
+    {
+        if (oxygen <- 0f)
+        {
+            SnuffFire();
+        }
+    }
+
+    void SnuffFire()
+    {
+        foreach (Fire fire in fires)
+        {
+
+            FixFire(fire);
         }
     }
 

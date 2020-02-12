@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -399,6 +399,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallStation
       objectReference: {fileID: 0}
+    - target: {fileID: 8833609003308360411, guid: 166c49acfb0876543a8f7a77f786a26e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 315c1f64e3b9a9544bca694ec48d6acd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 166c49acfb0876543a8f7a77f786a26e, type: 3}
 --- !u!1001 &1472900548

@@ -28,7 +28,7 @@ public class PlayerInteraction : MonoBehaviour
     public void PlayerSuffocate() {
         Debug.Log("Player Suffocated");
         Invoke("GameOver", 3f);
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 
     public void HandleOxygen() {
