@@ -52,6 +52,7 @@ public class Room : MonoBehaviour
         if (holes.Contains(leakingAir))
         {
             holes.Remove(leakingAir);
+            Destroy(leakingAir.gameObject);
         }
     }
 
@@ -80,16 +81,6 @@ public class Room : MonoBehaviour
             return;
         }
 
-        if (oxygen <= 0f)
-        {
-            SnuffFire();
-            /*foreach (Fire fire in fires)
-            {
-                
-                FixFire(fire);
-            }*/
-        }
-
         SpawnFire();
         
         var target = this.halfAirlocks
@@ -106,18 +97,20 @@ public class Room : MonoBehaviour
 
     void LateUpdate()
     {
-        if (oxygen <- 0f)
-        {
-            SnuffFire();
-        }
+        SnuffFire();
     }
 
     void SnuffFire()
     {
-        foreach (Fire fire in fires)
+        //Do not snuff fires if there is oxygen in the room
+        if (oxygen > 0f)
         {
+            return;
+        }
 
-            FixFire(fire);
+        while (fires.Count > 0)
+        {
+            FixFire(fires.First());
         }
     }
 

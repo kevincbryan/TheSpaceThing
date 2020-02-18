@@ -29,7 +29,5 @@ public class Fire : MonoBehaviour
     public void Repair()
     {
         room.FixFire(this);
-
-        Destroy(gameObject);
     }
 }

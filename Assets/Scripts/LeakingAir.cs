@@ -30,7 +30,5 @@ public class LeakingAir : MonoBehaviour
     public void Repair()
     {
         room.FixLeak(this);
-
-        Destroy(gameObject);
     }
 }
