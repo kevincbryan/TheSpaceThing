@@ -19,7 +19,7 @@ public class Fire : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (other.gameObject.GetComponent<PlayerInputManager>().InteractPressed())
             {
                 Repair();
             }

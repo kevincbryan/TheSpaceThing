@@ -9,12 +9,15 @@ public class PlayerMovement : MonoBehaviour
 
     CharacterController characterController;
 
+    PlayerInputManager inputManager;
+
     float startingY;
     
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        inputManager = GetComponent<PlayerInputManager>();
 
         startingY = transform.position.y;
     }
@@ -27,8 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveByPlayerInput()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = inputManager.GetX();
+        float verticalInput = inputManager.GetY();
 
         transform.LookAt(transform.position + new Vector3(horizontalInput, 0, verticalInput));
         var forward = new Vector3(horizontalInput, 0, verticalInput).normalized;

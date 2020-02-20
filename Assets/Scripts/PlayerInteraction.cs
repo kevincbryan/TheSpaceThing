@@ -20,6 +20,13 @@ public class PlayerInteraction : MonoBehaviour
 
     private HashSet<RoomTrigger> inRooms = new HashSet<RoomTrigger>();
 
+    private PlayerInputManager inputManager;
+
+    private void Start()
+    {
+        inputManager = GetComponent<PlayerInputManager>();
+    }
+
     public void Update() {
         HandleOxygen();
         HandleDoorToggle();
@@ -66,7 +73,7 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     public void HandleDoorToggle() {
-        if (Input.GetButtonDown("Fire1")) {
+        if (inputManager.InteractPressed()) {
             foreach (var door in nearbyDoors) {
                 door.Toggle();
             }
