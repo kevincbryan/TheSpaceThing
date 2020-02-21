@@ -6,19 +6,12 @@ public class PlayerInputManager : MonoBehaviour
 {
     public enum Actions { horizontal, vertical, fire1, submit, cancel, menu };
 
-    Dictionary<Actions, string> input = new Dictionary<Actions, string>();
+    public Dictionary<Actions, string> input = new Dictionary<Actions, string>();
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        string prefix = "Key_";
-
-        input.Add(Actions.horizontal, prefix + "Horizontal");
-        input.Add(Actions.vertical, prefix + "Vertical");
-        input.Add(Actions.fire1, prefix + "Fire1");
-        input.Add(Actions.cancel, "Cancel");
-        input.Add(Actions.submit, "Submit");
-        input.Add(Actions.menu, "Menu");
+        SetKeyboardControlled();
     }
 
     public void SetKeyboardControlled()
@@ -28,6 +21,8 @@ public class PlayerInputManager : MonoBehaviour
 
     public void SetJoystickController(int joyNum)
     {
+        Debug.Log(gameObject.name + " set as " + joyNum.ToString());
+
         if (joyNum < 1 || joyNum > 4)
         {
             Debug.LogError("Joystick out of range");
@@ -60,6 +55,9 @@ public class PlayerInputManager : MonoBehaviour
 
     public bool InteractPressed()
     {
-        return Input.GetButtonDown(input[Actions.fire1]);
+        bool pressed = Input.GetButtonDown(input[Actions.fire1]);
+        Debug.Log(gameObject.name + ": " + input[Actions.fire1] + " " + pressed);
+
+        return pressed;
     }
 }
