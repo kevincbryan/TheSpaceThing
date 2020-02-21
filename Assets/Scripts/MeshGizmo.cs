@@ -8,6 +8,7 @@ public class MeshGizmo : MonoBehaviour
     public Color color = new Color(1, 0, 0, 0.5f);
     public bool isWireframe = false;
     
+    /*
     void OnDrawGizmos() {
         Gizmos.color = color;
         if (isWireframe) {
@@ -27,5 +28,5 @@ public class MeshGizmo : MonoBehaviour
                 gameObject.transform.localScale
             );
         }
-    }
+    }*/
 }

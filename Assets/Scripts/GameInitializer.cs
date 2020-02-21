@@ -15,8 +15,24 @@ public class GameInitializer : MonoBehaviour {
         }
         //Invoke("GoToNextScene", titleTimeout);
 	}
-	
-	public void GoToNextScene()
+
+    private void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            if (SceneManager.GetActiveScene().name.Equals("Title"))
+            {
+                GoToNextScene();
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("GameOver"))
+            {
+                GoToSceneNumber(0);
+            }
+            
+        }
+    }
+
+    public void GoToNextScene()
     {
         SceneLoader.GoToNextScene();
     }

@@ -65,6 +65,7 @@ public class JoinedPlayers : MonoBehaviour
             }
 
         }
+        SceneManager.sceneLoaded -= SceneLoaded;
         Destroy(gameObject);
     }
 }

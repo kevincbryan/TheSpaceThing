@@ -17,7 +17,7 @@ public class HalfAirlock : MonoBehaviour
     }
     
     public void Toggle() {
-        Debug.Log("am door");
+        //Debug.Log("am door");
         this.isOpen = !this.isOpen;
         this.door.SetOpen(this.isOpen);
         this.pairedAirlock.SetOpen(this.isOpen);
@@ -32,11 +32,11 @@ public class HalfAirlock : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
+    /*void OnDrawGizmos()
     {
         Gizmos.color = this.isOpen ? Color.white : Color.black;
 
         var above = new Vector3(0, 5, 0);
         Gizmos.DrawSphere(transform.position + above, 2);
-    }
+    }*/
 }

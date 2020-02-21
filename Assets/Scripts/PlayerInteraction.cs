@@ -40,7 +40,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void HandleOxygen() {
         if (!inRooms.Any()) {
-            Debug.Log("Not in any rooms. Map needs repair.");
+            //Debug.Log("Not in any rooms. Map needs repair.");
             return;
         }
 
@@ -81,26 +81,26 @@ public class PlayerInteraction : MonoBehaviour
     }
     
     public void OnRoomEnter(RoomTrigger room) {
-        Debug.Log("OnRoomEnter");
+        //Debug.Log("OnRoomEnter");
         this.inRooms.Add(room);
-        Debug.Log($"In Rooms {inRooms.Count}");
+        //Debug.Log($"In Rooms {inRooms.Count}");
     }
     
     public void OnRoomExit(RoomTrigger room) {
-        Debug.Log("OnRoomExit");
+        //Debug.Log("OnRoomExit");
         this.inRooms.Remove(room);
-        Debug.Log($"In Rooms {inRooms.Count}");
+        //Debug.Log($"In Rooms {inRooms.Count}");
     }
 
     public void OnDoorEnter(DoorTrigger door) {
-        Debug.Log("OnDoorEnter");
+        //Debug.Log("OnDoorEnter");
         this.nearbyDoors.Add(door);
-        Debug.Log($"Nearby Doors {nearbyDoors.Count}");
+        //Debug.Log($"Nearby Doors {nearbyDoors.Count}");
     }
     
     public void OnDoorExit(DoorTrigger door) {
-        Debug.Log("OnDoorExit");
+        //Debug.Log("OnDoorExit");
         this.nearbyDoors.Remove(door);
-        Debug.Log($"Nearby Doors {nearbyDoors.Count}");
+        //Debug.Log($"Nearby Doors {nearbyDoors.Count}");
     }
 }
