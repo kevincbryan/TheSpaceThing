@@ -5,10 +5,15 @@ using UnityEngine;
 public class PlayerListener : MonoBehaviour
 {
     public List<PlayerInputManager> inputManagers = new List<PlayerInputManager>();
+
+    JoinedPlayers joinedPlayers;
+
     // Start is called before the first frame update
     void Start()
     {
         PlayerInputManager[] playerSlots = GetComponentsInChildren<PlayerInputManager>(true);
+
+        joinedPlayers = FindObjectOfType<JoinedPlayers>();
 
         const int joystickMax = 4;
 
@@ -33,13 +38,13 @@ public class PlayerListener : MonoBehaviour
                 inputManagers[i].SetKeyboardControlled();
             }
         }
-
     }
 
     // Update is called once per frame
     void Update()
     {
         CheckForInput();
+        CheckForStart();
     }
 
     void CheckForInput()
@@ -49,7 +54,20 @@ public class PlayerListener : MonoBehaviour
             if (Mathf.Abs(player.GetX()) > 0 || Mathf.Abs(player.GetY()) > 0 || player.InteractPressed())
             {
                 player.gameObject.GetComponentInChildren<Animator>(true).gameObject.SetActive(true);
+                if (joinedPlayers.players.Contains(player) == false)
+                {
+                    joinedPlayers.players.Add(player);
+                    player.transform.parent = joinedPlayers.transform;
+                }                
             }
+        }
+    }
+
+    void CheckForStart()
+    {
+        if (Input.GetButtonDown("Submit") && joinedPlayers.players.Count > 0)
+        {
+            joinedPlayers.StartGame();
         }
     }
 }

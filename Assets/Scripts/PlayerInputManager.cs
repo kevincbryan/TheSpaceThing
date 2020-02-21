@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerInputManager : MonoBehaviour
 {
     public enum Actions { horizontal, vertical, fire1, submit, cancel, menu };
+    public enum InputType { keyboard, joystick };
+
+    public InputType inputType = InputType.keyboard;
+    public int joyNum = 0;
 
     public Dictionary<Actions, string> input = new Dictionary<Actions, string>();
 
@@ -16,12 +20,14 @@ public class PlayerInputManager : MonoBehaviour
 
     public void SetKeyboardControlled()
     {
+        inputType = InputType.keyboard;
         UpdateInput("Key_");
     }
 
     public void SetJoystickController(int joyNum)
     {
-        Debug.Log(gameObject.name + " set as " + joyNum.ToString());
+        inputType = InputType.joystick;
+        this.joyNum = joyNum;
 
         if (joyNum < 1 || joyNum > 4)
         {
@@ -55,9 +61,6 @@ public class PlayerInputManager : MonoBehaviour
 
     public bool InteractPressed()
     {
-        bool pressed = Input.GetButtonDown(input[Actions.fire1]);
-        Debug.Log(gameObject.name + ": " + input[Actions.fire1] + " " + pressed);
-
-        return pressed;
+        return Input.GetButtonDown(input[Actions.fire1]); 
     }
 }
