@@ -68,7 +68,7 @@ MonoBehaviour:
   oxygenLossPerHole: 1
   oxygenLossForFire: 5
   oxygenHandleRate: 1
-  fireSpreadRate: 5
+  fireSpreadRate: 10
   maxOxygenThiefRate: 20
   fireSpawnRadius: 5
   firePrefab: {fileID: 8320027010858356461, guid: 96fdd0fbf42f8f64a8ae02701f119f38,

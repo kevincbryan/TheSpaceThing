@@ -65,12 +65,15 @@ MonoBehaviour:
   m_Shader: {fileID: 6551682605921411928}
   oxygenRegen: 5
   oxygenLossPerHole: 1
+  oxygenLossForFire: 5
   oxygenHandleRate: 1
-  fireSpreadRate: 5
+  fireSpreadRate: 10
+  maxOxygenThiefRate: 20
   fireSpawnRadius: 5
   firePrefab: {fileID: 8320027010858356461, guid: 96fdd0fbf42f8f64a8ae02701f119f38,
     type: 3}
   isOnFire: 0
+  wasThiefed: 0
   halfAirlocks: []
 --- !u!64 &21746701778636232
 MeshCollider:

@@ -80,6 +80,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 9097658829823127830, guid: b0df2f94d78578e4aa24f187184ce46e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097658829823127830, guid: b0df2f94d78578e4aa24f187184ce46e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097658829823127830, guid: b0df2f94d78578e4aa24f187184ce46e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9097658829823128041, guid: b0df2f94d78578e4aa24f187184ce46e,
         type: 3}
       propertyPath: NoiseModule.enabled
